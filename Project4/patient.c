@@ -20,7 +20,7 @@ typedef struct {
 Patient patients[MAX_PATIENTS];
 int patientCount = 0;
 
-// Function declarations
+// å‡½æ•°å£°æ˜
 void addPatient();
 void editPatient();
 void deletePatient();
@@ -32,17 +32,17 @@ void loadFromFile();
 int main() {
     int choice;
 
-    loadFromFile();// ´ÓÎÄ¼şÖĞ¼ÓÔØ»¼ÕßÊı¾İ
+    loadFromFile();// ä»æ–‡ä»¶ä¸­åŠ è½½æ‚£è€…æ•°æ®
 
     while (1) {
 
-        printf("\nÒ½Ôº»¼Õß¹ÜÀíÏµÍ³\n");
-        printf("1. Ìí¼Ó»¼Õß\n");
-        printf("2. ±à¼­»¼Õß\n");
-        printf("3. É¾³ı»¼Õß\n");
-        printf("4. ²éÑ¯»¼Õß\n");
-        printf("5. ÍË³ö\n");
-        printf("ÊäÈëÄãµÄÑ¡Ôñ: ");
+        printf("\nåŒ»é™¢æ‚£è€…ç®¡ç†ç³»ç»Ÿ\n");
+        printf("1. æ·»åŠ æ‚£è€…\n");
+        printf("2. ç¼–è¾‘æ‚£è€…\n");
+        printf("3. åˆ é™¤æ‚£è€…\n");
+        printf("4. æŸ¥è¯¢æ‚£è€…\n");
+        printf("5. é€€å‡º\n");
+        printf("è¾“å…¥ä½ çš„é€‰æ‹©: ");
         scanf("%d", &choice);
         getchar();
 
@@ -60,103 +60,103 @@ int main() {
             queryPatient();
             break;
         case 5:
-            saveToFile();  //ÔÚÍË³öÇ°½«»¼ÕßÊı¾İ±£´æµ½ÎÄ¼şÖĞ
+            saveToFile();  //åœ¨é€€å‡ºå‰å°†æ‚£è€…æ•°æ®ä¿å­˜åˆ°æ–‡ä»¶ä¸­
             exit(0);
         default:
-            printf("ÎŞĞ§µÄÑ¡Ôñ¡£ÇëÔÙÊÔÒ»´Î¡£\n");
+            printf("æ— æ•ˆçš„é€‰æ‹©ã€‚è¯·å†è¯•ä¸€æ¬¡ã€‚\n");
         }
     }
 
     return 0;
 }
-//Ìí¼Ó»¼Õß
+//æ·»åŠ æ‚£è€…
 void addPatient() {
     if (patientCount >= MAX_PATIENTS) {
-        printf("²¡ÈËÃûµ¥ÒÑÂú¡£\n");
+        printf("ç—…äººåå•å·²æ»¡ã€‚\n");
         return;
     }
 
     Patient p;
-    printf("ÊäÈë»¼ÕßĞÕÃû£º");
+    printf("è¾“å…¥æ‚£è€…å§“åï¼š");
     fgets(p.name, MAX_NAME_LENGTH, stdin);
     p.name[strcspn(p.name, "\n")] = '\0';
 
-    printf("ÊäÈë»¼ÕßÄêÁä£º ");
+    printf("è¾“å…¥æ‚£è€…å¹´é¾„ï¼š ");
     scanf("%d", &p.age);
     getchar();
 
-    printf("ÊäÈë»¼ÕßĞÔ±ğ£º ");
+    printf("è¾“å…¥æ‚£è€…æ€§åˆ«ï¼š ");
     scanf("%c", &p.gender);
     getchar();
 
-    printf("ÊäÈë»¼ÕßÁªÏµ·½Ê½£º ");
+    printf("è¾“å…¥æ‚£è€…è”ç³»æ–¹å¼ï¼š ");
     fgets(p.contact, MAX_CONTACT_LENGTH, stdin);
     p.contact[strcspn(p.contact, "\n")] = '\0';
 
-    printf("ÊäÈë»¼ÕßµÄ²¡Àú±àºÅ£º ");
+    printf("è¾“å…¥æ‚£è€…çš„ç—…å†ç¼–å·ï¼š ");
     fgets(p.zshMedRN, 20, stdin);
     p.zshMedRN[strcspn(p.zshMedRN, "\n")] = '\0';
 
-    printf("ÊäÈë»¼Õß²¡Ê·£º ");
+    printf("è¾“å…¥æ‚£è€…ç—…å²ï¼š ");
     fgets(p.zshMedH, MAX_MEDICAL_HISTORY_LENGTH, stdin);
     p.zshMedH[strcspn(p.zshMedH, "\n")] = '\0';
 
     patients[patientCount++] = p;
-    printf("»¼ÕßĞÅÏ¢Ìí¼Ó³É¹¦¡£\n");
-    //ÔİÍ£³ÌĞò
+    printf("æ‚£è€…ä¿¡æ¯æ·»åŠ æˆåŠŸã€‚\n");
+    //æš‚åœç¨‹åº
     system("pause");
-    //Çå¿Õ¿ØÖÆÌ¨
+    //æ¸…ç©ºæ§åˆ¶å°
     system("cls");
 
 }
-//±à¼­»¼Õß
+//ç¼–è¾‘æ‚£è€…
 void editPatient() {
     char medicalRecordNumber[20];
-    printf("ÊäÈëÒª±à¼­µÄ»¼ÕßµÄ²¡Àú±àºÅ£º ");
+    printf("è¾“å…¥è¦ç¼–è¾‘çš„æ‚£è€…çš„ç—…å†ç¼–å·ï¼š ");
     fgets(medicalRecordNumber, 20, stdin);
     medicalRecordNumber[strcspn(medicalRecordNumber, "\n")] = '\0';
 
     for (int i = 0; i < patientCount; i++) {
         if (strcmp(patients[i].zshMedRN, medicalRecordNumber) == 0) {
-            printf("±à¼­²¡Àı±àºÅÎª%sµÄ»¼ÕßµÄÏêÏ¸ĞÅÏ¢\n", medicalRecordNumber);
-            printf("ÊäÈë»¼ÕßµÄĞÂĞÕÃû: ");
+            printf("ç¼–è¾‘ç—…ä¾‹ç¼–å·ä¸º%sçš„æ‚£è€…çš„è¯¦ç»†ä¿¡æ¯\n", medicalRecordNumber);
+            printf("è¾“å…¥æ‚£è€…çš„æ–°å§“å: ");
             fgets(patients[i].name, MAX_NAME_LENGTH, stdin);
             patients[i].name[strcspn(patients[i].name, "\n")] = '\0';
 
-            printf("ÊäÈë»¼ÕßµÄĞÂÄêÁä: ");
+            printf("è¾“å…¥æ‚£è€…çš„æ–°å¹´é¾„: ");
             scanf("%d", &patients[i].age);
 
-            printf("ÊäÈë»¼ÕßĞÂµÄÁªÏµ·½Ê½: ");
+            printf("è¾“å…¥æ‚£è€…æ–°çš„è”ç³»æ–¹å¼: ");
             fgets(patients[i].contact, MAX_CONTACT_LENGTH, stdin);
             patients[i].contact[strcspn(patients[i].contact, "\n")] = '\0';
             getchar();
 
-            printf("ÊäÈë»¼ÕßĞÂµÄ²¡Ê·: ");
+            printf("è¾“å…¥æ‚£è€…æ–°çš„ç—…å²: ");
             fgets(patients[i].zshMedH, MAX_MEDICAL_HISTORY_LENGTH, stdin);
             patients[i].zshMedH[strcspn(patients[i].zshMedH, "\n")] = '\0';
             getchar();
 
-            printf("»¼ÕßĞÅÏ¢ĞŞ¸Ä³É¹¦¡£\n");  
-            //ÔİÍ£³ÌĞò
+            printf("æ‚£è€…ä¿¡æ¯ä¿®æ”¹æˆåŠŸã€‚\n");  
+            //æš‚åœç¨‹åº
             system("pause");
-            //Çå¿Õ¿ØÖÆÌ¨
+            //æ¸…ç©ºæ§åˆ¶å°
             system("cls");
             return;
           
 
         }
     }
-    printf("Ã»ÓĞÕÒµ½¶ÔÓ¦²¡Àú±àºÅµÄ»¼Õß¡£\n", medicalRecordNumber);
-    //ÔİÍ£³ÌĞò
+    printf("æ²¡æœ‰æ‰¾åˆ°å¯¹åº”ç—…å†ç¼–å·çš„æ‚£è€…ã€‚\n", medicalRecordNumber);
+    //æš‚åœç¨‹åº
     system("pause");
-    //Çå¿Õ¿ØÖÆÌ¨
+    //æ¸…ç©ºæ§åˆ¶å°
     system("cls");
 
 }
-//É¾³ı»¼Õß
+//åˆ é™¤æ‚£è€…
 void deletePatient() {
     char medicalRecordNumber[20];
-    printf("ÊäÈëÒªÉ¾³ıµÄ»¼ÕßµÄ²¡Àú±àºÅ£º ");
+    printf("è¾“å…¥è¦åˆ é™¤çš„æ‚£è€…çš„ç—…å†ç¼–å·ï¼š ");
     fgets(medicalRecordNumber, 20, stdin);
     medicalRecordNumber[strcspn(medicalRecordNumber, "\n")] = '\0';
 
@@ -166,26 +166,26 @@ void deletePatient() {
                 patients[j] = patients[j + 1];
             }
             patientCount--;
-            printf("»¼ÕßĞÅÏ¢É¾³ı³É¹¦¡£\n");
-             //ÔİÍ£³ÌĞò
+            printf("æ‚£è€…ä¿¡æ¯åˆ é™¤æˆåŠŸã€‚\n");
+             //æš‚åœç¨‹åº
             system("pause");
-            //Çå¿Õ¿ØÖÆÌ¨
+            //æ¸…ç©ºæ§åˆ¶å°
             system("cls");
             return;           
           
         }
     }
-    printf("Ã»ÓĞÕÒµ½¸Ã»¼ÕßµÄĞÅÏ¢\n", medicalRecordNumber);
-    //ÔİÍ£³ÌĞò
+    printf("æ²¡æœ‰æ‰¾åˆ°è¯¥æ‚£è€…çš„ä¿¡æ¯\n", medicalRecordNumber);
+    //æš‚åœç¨‹åº
     system("pause");
-    //Çå¿Õ¿ØÖÆÌ¨
+    //æ¸…ç©ºæ§åˆ¶å°
     system("cls");
 
 }
-//²éÑ¯»¼Õß
+//æŸ¥è¯¢æ‚£è€…
 void queryPatient() {
     char keyword[MAX_NAME_LENGTH];
-    printf("ÊäÈëÒªËÑË÷µÄĞÕÃû»ò²¡Àú±àºÅ£º ");
+    printf("è¾“å…¥è¦æœç´¢çš„å§“åæˆ–ç—…å†ç¼–å·ï¼š ");
     fgets(keyword, MAX_NAME_LENGTH, stdin);
     keyword[strcspn(keyword, "\n")] = '\0';
 
@@ -194,52 +194,52 @@ void queryPatient() {
         if (strstr(patients[i].name, keyword) != NULL || strcmp(patients[i].zshMedRN, keyword) == 0) {
             printPatient(patients[i]);
             found = 1;
-            //ÔİÍ£³ÌĞò
+            //æš‚åœç¨‹åº
             system("pause");
-            //Çå¿Õ¿ØÖÆÌ¨
+            //æ¸…ç©ºæ§åˆ¶å°
             system("cls");
         }
     }
     if (!found) {
-        printf("Ã»ÓĞÕÒµ½¾ßÓĞ¸ø¶¨¹Ø¼ü×ÖµÄ»¼Õß¡£\n");
-        //ÔİÍ£³ÌĞò
+        printf("æ²¡æœ‰æ‰¾åˆ°å…·æœ‰ç»™å®šå…³é”®å­—çš„æ‚£è€…ã€‚\n");
+        //æš‚åœç¨‹åº
         system("pause");
-        //Çå¿Õ¿ØÖÆÌ¨
+        //æ¸…ç©ºæ§åˆ¶å°
         system("cls");
 
     }
 }
-//
+//æŸ¥è¯¢åæ˜¾ç¤ºä¿¡æ¯
 void printPatient(Patient p) {
-    printf("\n»¼ÕßĞÅÏ¢:\n");
-    printf("ĞÕÃû: %s\n", p.name);
-    printf("ÄêÁä: %d\n", p.age);
-    printf("ĞÔ±ğ: %c\n", p.gender);
-    printf("ÁªÏµ·½Ê½: %s\n", p.contact);
-    printf("²¡Àú±àºÅ: %s\n", p.zshMedRN);
-    printf("²¡Ê·: %s\n", p.zshMedH);
+    printf("\næ‚£è€…ä¿¡æ¯:\n");
+    printf("å§“å: %s\n", p.name);
+    printf("å¹´é¾„: %d\n", p.age);
+    printf("æ€§åˆ«: %c\n", p.gender);
+    printf("è”ç³»æ–¹å¼: %s\n", p.contact);
+    printf("ç—…å†ç¼–å·: %s\n", p.zshMedRN);
+    printf("ç—…å²: %s\n", p.zshMedH);
 }
-//±£´æ»¼ÕßÊı¾İ
+//ä¿å­˜æ‚£è€…æ•°æ®
 void saveToFile() {
     FILE* file = fopen(FILENAME, "wb");
     if (file == NULL) {
-        perror("ÎŞ·¨´ò¿ªÎÄ¼ş½øĞĞĞ´Èë");
+        perror("æ— æ³•æ‰“å¼€æ–‡ä»¶è¿›è¡Œå†™å…¥");
         return;
     }
     fwrite(&patientCount, sizeof(int), 1, file);
     fwrite(patients, sizeof(Patient), patientCount, file);
     fclose(file);
-    printf("»¼ÕßÊı¾İ±£´æµ½ÎÄ¼ş¡£\n");
+    printf("æ‚£è€…æ•°æ®ä¿å­˜åˆ°æ–‡ä»¶ã€‚\n");
 }
-//¼ÓÔØÎÄ¼şÖĞµÄ»¼ÕßÊı¾İ
+//åŠ è½½æ–‡ä»¶ä¸­çš„æ‚£è€…æ•°æ®
 void loadFromFile() {
     FILE* file = fopen(FILENAME, "rb");
     if (file == NULL) {
-        perror("ÎŞ·¨´ò¿ª»¼ÕßĞÅÏ¢ÎÄ¼ş½øĞĞ¶ÁÈ¡");
+        perror("æ— æ³•æ‰“å¼€æ‚£è€…ä¿¡æ¯æ–‡ä»¶è¿›è¡Œè¯»å–");
         return;
     }
     fread(&patientCount, sizeof(int), 1, file);
     fread(patients, sizeof(Patient), patientCount, file);
     fclose(file);
-    printf("´ÓÎÄ¼şÖĞ¼ÓÔØ»¼ÕßÊı¾İ¡£\n");
+    printf("ä»æ–‡ä»¶ä¸­åŠ è½½æ‚£è€…æ•°æ®ã€‚\n");
 }
