@@ -1,0 +1,14 @@
+﻿  patient.c
+C:\Users\hi\source\repos\Project4\patient.c(46,9): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\hi\source\repos\Project4\patient.c(85,5): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\hi\source\repos\Project4\patient.c(89,5): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\hi\source\repos\Project4\patient.c(149,60): warning C4474: printf: 格式字符串中传递的参数太多
+      C:\Users\hi\source\repos\Project4\patient.c(149,60):
+      占位符和其参数预计 0 可变参数，但提供的却是 1 参数
+  
+C:\Users\hi\source\repos\Project4\patient.c(127,13): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\hi\source\repos\Project4\patient.c(178,48): warning C4474: printf: 格式字符串中传递的参数太多
+      C:\Users\hi\source\repos\Project4\patient.c(178,48):
+      占位符和其参数预计 0 可变参数，但提供的却是 1 参数
+  
+  Project4.vcxproj -> C:\Users\hi\source\repos\Project4\x64\Debug\Project4.exe
